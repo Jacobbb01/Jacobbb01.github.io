@@ -53,7 +53,42 @@ src="https://www.facebook.com/tr?id=635654032461043&ev=PageView&noscript=1"
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center">
             
-            
+
+            <p><span id="peopleCount">300</span> pessoas de  <b><span id="address" style="color: #fff;"></span></b> estão assistindo esse vídeo</p>
+
+<!--SCRIPT GEOLOCALIZAÇÃO-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>$.get("https://ipinfo.io/json", function (response) { $("#address").html(response.city);
+}, "jsonp");
+</script>
+
+<!--FIM DO SCRIPT-->
+
+
+<!--SCRIPT AUMENTO DE PESSOAS-->
+<script>
+  // Função para aumentar o número a cada 30 segundos
+  function aumentarNumero() {
+    var peopleCountElement = document.getElementById('peopleCount');
+    var numeroAtual = parseInt(peopleCountElement.innerText, 10);
+
+    // Aumenta o número em 1
+    var novoNumero = numeroAtual + 1;
+
+    // Atualiza o conteúdo do elemento
+    peopleCountElement.innerText = novoNumero;
+
+    // Chama a função novamente após 30 segundos (30000 milissegundos)
+    setTimeout(aumentarNumero, 30000);
+  }
+
+  // Inicia o aumento quando a página carrega
+  aumentarNumero();
+</script>
+
+<!--FIM DO SCRIPT-->
 
             <!-- Headline -->
             <!DOCTYPE html>
