@@ -18,6 +18,42 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=635654032461043&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desabilitar Clique Direito</title>
+    <script>
+        // Desabilita o clique direito
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert('A visualização do código fonte foi desabilitada!');
+        });
+
+        // Tenta bloquear atalhos comuns de inspeção (Ctrl+U, Ctrl+Shift+I)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || 
+                (e.shiftKey && (e.key === 'i' || e.key === 'I')))) {
+                e.preventDefault();
+                alert('Acesso ao código fonte bloqueado!');
+            }
+        });
+    </script>
+    <style>
+        /* Impede seleção de texto (opcional) */
+        body {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -75,13 +111,13 @@ src="https://www.facebook.com/tr?id=635654032461043&ev=PageView&noscript=1"
     var numeroAtual = parseInt(peopleCountElement.innerText, 10);
 
     // Aumenta o número em 1
-    var novoNumero = numeroAtual + 1;
+    var novoNumero = numeroAtual + 6;
 
     // Atualiza o conteúdo do elemento
     peopleCountElement.innerText = novoNumero;
 
     // Chama a função novamente após 30 segundos (30000 milissegundos)
-    setTimeout(aumentarNumero, 30000);
+    setTimeout(aumentarNumero, 15000);
   }
 
   // Inicia o aumento quando a página carrega
